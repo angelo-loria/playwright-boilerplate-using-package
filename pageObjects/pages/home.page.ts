@@ -1,4 +1,4 @@
-import { BasePage } from "@angelo-loria/playwright-config-package";
+import { BasePage } from "@angelo-loria/playwright-config-package-boilerplate";
 import CarouselCards from "../components/carouselCards";
 import ProductCards from "../components/productCards";
 
