@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@angelo-loria/playwright-config-package@1.0.27":
-  version "1.0.27"
-  resolved "https://npm.pkg.github.com/download/@angelo-loria/playwright-config-package/1.0.27/07108673e476757d1fcc5c104f7830065dec37ae#07108673e476757d1fcc5c104f7830065dec37ae"
-  integrity sha512-WJAMK51fXb3p8W+8gggayYZq6d2Fmp5upzPp5I6tQ7r+5hypMBGq2PFJ4dy/+IicFzYfq1w5rr3PCPwka+8ZlQ==
+"@angelo-loria/playwright-config-package-boilerplate@1.0.28":
+  version "1.0.28"
+  resolved "https://npm.pkg.github.com/download/@angelo-loria/playwright-config-package-boilerplate/1.0.28/3416599964fd7ada45e67ba4819ef58ea56c4553#3416599964fd7ada45e67ba4819ef58ea56c4553"
+  integrity sha512-+MbqkMHXkIxC3o0cVYeBIo07ZYRJLp2gXSuTiDbAiMh6sMBDG01YZn89OmzWvtCf1F6gp29Ppz5NEg3/STFgSg==
   dependencies:
     "@axe-core/playwright" "^4.8.0"
     "@playwright/test" "1.42.1"
