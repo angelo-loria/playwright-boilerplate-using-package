@@ -8,7 +8,7 @@ const fetch = require("node-fetch");
 const fs = require("fs");
 const { argv } = require("process");
 
-const repoName = "playwright-boilerplate";
+const repoName = "playwright-boilerplate-using-package";
 const desiredTargetName = `${repoName}_${process.env.BRANCH}`;
 const apiToken = process.env.TESULTS_API_TOKEN;
 
