@@ -1,11 +1,11 @@
 {
-  "name": "playwright-boilerplate",
+  "name": "playwright-boilerplate-using-package",
   "version": "1.0.0",
-  "description": "NodeJs Playwright boilerplate project",
+  "description": "NodeJs Playwright boilerplate project using package",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write .",
-    "test": "./node_modules/@playwright/test/cli.js test --config=node_modules/@angelo-loria/playwright-config-package/dist/playwright.config.js --workers=1",
+    "test": "./node_modules/@playwright/test/cli.js test --config=node_modules/@angelo-loria/playwright-config-package-boilerplate/dist/playwright.config.js --workers=1",
     "test:chromium": "yarn test --project=chromium",
     "test:ci": "CI=true && yarn test",
     "test:debug": "yarn test --debug --project=chromium",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angelo-loria/playwright-boilerplate.git"
+    "url": "git+https://github.com/angelo-loria/playwright-boilerplate-using-package.git"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/angelo-loria/playwright-boilerplate/issues"
   },
-  "homepage": "https://github.com/angelo-loria/playwright-boilerplate#readme",
+  "homepage": "https://github.com/angelo-loria/playwright-boilerplate-using-package#readme",
   "devDependencies": {
     "@angelo-loria/playwright-config-package-boilerplate": "1.0.28",
     "@axe-core/playwright": "^4.8.1",
