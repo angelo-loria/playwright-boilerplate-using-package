@@ -1,9 +1,18 @@
-[![Playwright Test](https://github.com/angelo-loria/playwright-boilerplate/actions/workflows/playwright-shard.yml/badge.svg?branch=main)](https://github.com/angelo-loria/playwright-boilerplate/actions/workflows/playwright-shard.yml)
-[![View site - GH Pages](https://img.shields.io/badge/View_Latest_Test_Report-Github_Pages-9F2B68)](https://angelo-loria.github.io/playwright-boilerplate/)
+[![Playwright Test](https://github.com/angelo-loria/playwright-boilerplate-using-package/actions/workflows/playwright-shard.yml/badge.svg?branch=main)](https://github.com/angelo-loria/playwright-boilerplate/actions/workflows/playwright-shard.yml)
+[![View site - GH Pages](https://img.shields.io/badge/View_Latest_Test_Report-Github_Pages-9F2B68)](https://angelo-loria.github.io/playwright-boilerplate-using-package/)
 [![View site - GH Pages](https://img.shields.io/badge/View_Dashboard-Tesults-398cdb)](https://www.tesults.com/angelo-loria/acme-store-demo)
 
+# Playwright Page Object Model Boilerplate With Config Package
+This is a clone of my [original Playwright boilerplate project](https://github.com/angelo-loria/playwright-boilerplate) with one major difference: the Playwright configuration file has been moved to an [NPM package in a separate repo](https://github.com/angelo-loria/playwright-config-package-boilerplate). I've also packaged up some of the page objects that were originally in the repo. Why would you want to do this? Well, if you have multiple Playwright projects that use the same base configuration and page objects (like a navbar and footer, for example), you can package them up and use them everywhere. This makes it a breeze to update the Playwright version being used or setting the same browser projects everywhere, or you could do things like adding custom assertions, a global setup, fixtures, and anything else you might want to share across multiple Playwright projects. 
 
-# Playwright Page Object Model Boilerplate
+#### Differences from the original repo
+* The `"test"` script in the package.json file has been updated to point to the Playwright config package
+* Page objects are being imported from the Playwright config package
+* The `playwright-shard.yml` Actions workflow has been updated with additional authentication steps to allow the workflow to access the Playwright config package
+
+
+### Everything below is copied from the README in the [original repo](https://github.com/angelo-loria/playwright-boilerplate).
+-----------------------------------------------
 
 This is an example of a Playwright project that uses the page object model design pattern. In general, [Playwright best practices](https://playwright.dev/docs/best-practices) are followed where possible and the [configuration](https://github.com/angelo-loria/playwright-boilerplate/blob/main/playwright.config.ts) is largely the default configuration generated when you install Playwright. 
 
