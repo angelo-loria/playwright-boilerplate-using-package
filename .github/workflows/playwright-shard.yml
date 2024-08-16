@@ -49,6 +49,8 @@ jobs:
           
       - name: Yarn Install
         run: yarn install --mode=skip-build
+        env:
+          NODE_AUTH_TOKEN: ${{ env.PACKAGE_TOKEN }}
         
       - name: Create Tesults Target Token
         run: node ./.scripts/create-delete-branch-target.js create
