@@ -84,7 +84,16 @@ jobs:
       image: mcr.microsoft.com/playwright:v${{ needs.set_job_params.outputs.pw-version }}-jammy
     steps:
       - uses: actions/checkout@v4
-
+      
+      - name: Setup NodeJS SDK ${{ env.NODEJS_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          cache-dependency-path: yarn.lock
+          node-version: ${{ env.NODEJS_VERSION }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@angelo-loria'
+          
       - name: Yarn Install
         run: yarn install
         env:
@@ -129,13 +138,15 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Setup NodeJS SDK ${{ env.NODEJS_VERSION }}
       uses: actions/setup-node@v4
       with:
         cache: yarn
         cache-dependency-path: yarn.lock
         node-version: ${{ env.NODEJS_VERSION }}
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@angelo-loria'
     
     - name: Yarn Install
       run: yarn install
@@ -198,7 +209,16 @@ jobs:
       image: mcr.microsoft.com/playwright:v${{ needs.set_job_params.outputs.pw-version }}-jammy
     steps:
       - uses: actions/checkout@v4
-      
+
+      - name: Setup NodeJS SDK ${{ env.NODEJS_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          cache-dependency-path: yarn.lock
+          node-version: ${{ env.NODEJS_VERSION }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@angelo-loria'
+          
       - name: Yarn Install
         run: yarn install
         env:
