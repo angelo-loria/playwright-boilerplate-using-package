@@ -44,34 +44,34 @@ jobs:
         id: set_version
         run: echo "PW_VERSION=${{ steps.get-version.outputs.version }}" >> $GITHUB_OUTPUT
 
-    update_snapshots:
-        name: Update Snapshots
-        runs-on: ubuntu-latest
-        container:
-          image: mcr.microsoft.com/playwright:v${{ needs.set_job_params.outputs.pw-version }}-jammy
+  update_snapshots:
+    name: Update Snapshots
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v${{ needs.set_job_params.outputs.pw-version }}-jammy
 
-        steps:
-        - uses: actions/checkout@v4
-        
-        - name: Setup NodeJS SDK ${{ env.NODEJS_VERSION }}
-          uses: actions/setup-node@v4
-          with:
-            cache: yarn
-            cache-dependency-path: yarn.lock
-            node-version: ${{ env.NODEJS_VERSION }}
-            registry-url: 'https://npm.pkg.github.com'
-            scope: '@angelo-loria'
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup NodeJS SDK ${{ env.NODEJS_VERSION }}
+      uses: actions/setup-node@v4
+      with:
+        cache: yarn
+        cache-dependency-path: yarn.lock
+        node-version: ${{ env.NODEJS_VERSION }}
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@angelo-loria'
 
-        - name: Yarn Install
-          run: yarn install
-          env:
-            NODE_AUTH_TOKEN: ${{ env.PACKAGE_TOKEN }}
+    - name: Yarn Install
+      run: yarn install
+      env:
+        NODE_AUTH_TOKEN: ${{ env.PACKAGE_TOKEN }}
 
-        - name: Update Snapshots
-          run: yarn test --grep snapshot --update-snapshots --reporter=list
+    - name: Update Snapshots
+      run: yarn test --grep snapshot --update-snapshots --reporter=list
 
-        - name: Commit and Push Snapshots
-          uses: stefanzweifel/git-auto-commit-action@v5
-          with:
-            commit_message: Update Playwright Snapshots
-            file_pattern: "tests/visual/*.png"
+    - name: Commit and Push Snapshots
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Update Playwright Snapshots
+        file_pattern: "tests/visual/*.png"
