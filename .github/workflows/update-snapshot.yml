@@ -46,6 +46,7 @@ jobs:
 
   update_snapshots:
     name: Update Snapshots
+    needs: set_job_params
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v${{ needs.set_job_params.outputs.pw-version }}-jammy
