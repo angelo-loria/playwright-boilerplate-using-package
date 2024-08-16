@@ -70,6 +70,8 @@ jobs:
 
     - name: Update Snapshots
       run: yarn test --grep snapshot --update-snapshots --reporter=list
+      env:
+        HOME: /root # required for playwright to run in container
 
     - name: Commit and Push Snapshots
       uses: stefanzweifel/git-auto-commit-action@v5
