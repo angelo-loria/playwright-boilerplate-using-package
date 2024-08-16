@@ -50,9 +50,9 @@ I'm using [Prettier](https://prettier.io/) for formatting. I've added an [npm sc
 I've made some changes to the default Github Actions workflow that Playwright generates.
 
 ### Test Execution
-Test execution takes place in a job called [playwright_test](https://github.com/angelo-loria/playwright-boilerplate/blob/main/.github/workflows/playwright-shard.yml#L21).
-* I've added caching for the browser binaries. This will speed up the workflow by not having to download the browser binaries every time the workflow runs. [See line 41 of the Actions workflow for the first of the steps involved in caching the binaries.](https://github.com/angelo-loria/playwright-boilerplate/blob/main/.github/workflows/playwright-shard.yml#L41)
-* I'm using Playwright's [sharding feature](https://playwright.dev/docs/test-shardinghttps://playwright.dev/docs/test-sharding) to run the tests in parallel. [See line 25 of the Actions workflow for the matrix configuration](https://github.com/angelo-loria/playwright-boilerplate/blob/main/.github/workflows/playwright-shard.yml#L25) and [line 64 for the step that runs the tests in parallel](https://github.com/angelo-loria/playwright-boilerplate/blob/main/.github/workflows/playwright-shard.yml#L64). Output from sharded tests is uploaded for use in the reporting job. 
+Test execution takes place in a job called [playwright_test](https://github.com/angelo-loria/playwright-boilerplate/blob/main/.github/workflows/playwright-shard.yml).
+* I'm using Playwright's container image for the job environment. I grab the container version from the Playwright version in the `node_modules` folder.
+* I'm using Playwright's [sharding feature](https://playwright.dev/docs/test-shardinghttps://playwright.dev/docs/test-sharding) to run the tests in parallel. Output from sharded tests is uploaded for use in the reporting job. 
 
 ### Reporting
 I'm using multiple methods of reporting here. Reporting tasks are done in a [separate job](https://github.com/angelo-loria/playwright-boilerplate/blob/main/.github/workflows/playwright-shard.yml#L84) that executes after all test shard execution has completed. 
